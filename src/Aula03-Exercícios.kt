@@ -1,15 +1,23 @@
-class Pessoas{
-    private var nome:String = ""
-    private var idade:Int = 0
-    private var peso:Float = 0f
-    private var altura:Float = 0f
+fun main(){
+    val pessoa1 = Pessoas("Nome1", 20, 60f, 1.70f)
+    val pessoa2 = Pessoas("Nome2", 21, 85f, 1.80f)
+    println(pessoa1.getNome()+
+            "\n Idade: "+pessoa1.getIdade()+
+            "\n Peso: "+pessoa1.getPeso()+
+            "\n Altura: "+pessoa1.getAltura()+
+            "\n IMC: "+pessoa1.calcularIMC()
+    )
+    println(pessoa2.getNome()+
+            "\n Idade: "+pessoa2.getIdade()+
+            "\n Peso: "+pessoa2.getPeso()+
+            "\n Altura: "+pessoa2.getAltura()+
+            "\n IMC: "+pessoa2.calcularIMC()
+    )
 
-    constructor(nome: String, idade: Int, peso: Float, altura: Float) {
-        this.nome = nome
-        this.idade = idade
-        this.peso = peso
-        this.altura = altura
-    }
+    println("Situação de "+pessoa1.getNome()+": "+apresentarSituacao(pessoa1.calcularIMC()))
+    println("Situação de "+pessoa2.getNome()+": "+apresentarSituacao(pessoa2.calcularIMC()))
+}
+class Pessoas(private var nome: String, private var idade: Int, private var peso: Float, private var altura: Float) {
 
     fun setNome(nome:String){
         this.nome = nome
@@ -41,25 +49,6 @@ class Pessoas{
     }
 }
 
-fun main(){
-    var pessoa1 = Pessoas("Nome1", 20, 60f, 1.70f)
-    var pessoa2 = Pessoas("Nome2", 21, 85f, 1.80f)
-    println(pessoa1.getNome()+
-            "\n Idade: "+pessoa1.getIdade()+
-            "\n Peso: "+pessoa1.getPeso()+
-            "\n Altura: "+pessoa1.getAltura()+
-            "\n IMC: "+pessoa1.calcularIMC()
-    )
-    println(pessoa2.getNome()+
-            "\n Idade: "+pessoa2.getIdade()+
-            "\n Peso: "+pessoa2.getPeso()+
-            "\n Altura: "+pessoa2.getAltura()+
-            "\n IMC: "+pessoa2.calcularIMC()
-    )
-
-    println("Situação de "+pessoa1.getNome()+": "+apresentarSituacao(pessoa1.calcularIMC()))
-    println("Situação de "+pessoa2.getNome()+": "+apresentarSituacao(pessoa2.calcularIMC()))
-}
 fun apresentarSituacao(imc:Float):String {
     if (imc < 18.5f) {
         return "Abaixo do peso ideal"
